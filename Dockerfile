@@ -30,4 +30,4 @@ EXPOSE 8080
 ENTRYPOINT [ "poetry", "run" ]
 
 # YOUR CODE HERE
-CMD [ "uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "echo ${PORT}" ]
+CMD [ "uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "sh", "-c", "echo", "${PORT}" ]
