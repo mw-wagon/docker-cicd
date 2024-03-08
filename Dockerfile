@@ -20,8 +20,8 @@ ENV PATH="${PATH}:/home/runner/.local/bin"
 
 COPY ./  ./
 
-RUN pip install --upgrade pip \
-    && pip install --no-cache-dir poetry \
+RUN pip install --no-cache-dir --upgrade pip==23.3.1 \
+    && pip install --no-cache-dir poetry==1.7.1 \
     && poetry install --only main
 
 
@@ -30,4 +30,4 @@ EXPOSE 8080
 ENTRYPOINT [ "poetry", "run" ]
 
 # YOUR CODE HERE
-CMD uvicorn app.main:app --host 0.0.0.0 --port $PORT
+CMD [ "uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "$PORT" ]
