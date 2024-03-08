@@ -25,7 +25,7 @@ RUN pip install --upgrade pip \
     && poetry install --only main
 
 
-EXPOSE 8000
+EXPOSE 8080
 
 ENTRYPOINT [ "poetry", "run" ]
 
